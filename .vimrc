@@ -7,6 +7,8 @@ Plug 'venantius/vim-cljfmt'
 Plug 'vim-scripts/paredit.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 Plug 'guns/vim-sexp',    {'for': 'clojure'}
 Plug 'liquidz/vim-iced', {'for': 'clojure'}
 Plug 'itchyny/vim-haskell-indent'
