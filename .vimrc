@@ -14,6 +14,8 @@ Plug 'liquidz/vim-iced', {'for': 'clojure'}
 Plug 'itchyny/vim-haskell-indent'
 Plug 'nbouscal/vim-stylish-haskell'
 
+Plug 'paroxayte/vwm.vim'
+
 call plug#end()
 "" minpac stuff
 "packadd minpac
@@ -87,3 +89,22 @@ let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 
 "" NERDTREE
 map <C-n> :NERDTreeToggle<CR>
+
+let g:vwm#layouts = [
+      \  {
+      \    'name': 'test',
+      \    'bot':
+      \    {
+      \      'init': ['call termopen("zsh", {"detach": 0})'],
+      \      'sz': 12,
+      \      'left':
+      \      {
+      \        'init': ['call termopen("zsh", {"detach": 0})'],
+      \      },
+      \      'right':
+      \      {
+      \        'init': ['call termopen("zsh", {"detach": 0})'],
+      \      }
+      \    }
+      \  }
+      \]
