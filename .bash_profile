@@ -12,8 +12,10 @@ export VISUAL=nvim
 export GOPATH=$HOME/go
 export APPSPATH=$HOME/apps
 
-PATH="$HOME/.node_modules/bin:$PATH"
-export npm_config_prefix=~/.node_modules
+#PATH="$HOME/.node_modules/bin:$PATH"
+#export npm_config_prefix=~/.node_modules
+
+source /usr/share/nvm/init-nvm.sh
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
 	pgrep i3 || startx
