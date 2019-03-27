@@ -4,6 +4,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fireplace'
 Plug 'venantius/vim-cljfmt'
 
@@ -28,6 +29,9 @@ let g:iced_enable_default_key_mappings = v:true
 "" NERDTREE
 ""map <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
+
+"" nerdcommenter recommendation
+filetype plugin on
 
 "" NVIM Window Manager
 let g:vwm#layouts = [
