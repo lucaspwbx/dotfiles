@@ -14,6 +14,9 @@ Plug 'liquidz/vim-iced', {'for': 'clojure'}
 
 " window manager for vim
 Plug 'paroxayte/vwm.vim'
+
+" seamless navigation between nvim and tmux
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 let mapleader = ","
