@@ -3,15 +3,19 @@
 " source ~/.vimrc
 call plug#begin('~/.vim/plugged')
 
+"" general tools
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'ntpeters/vim-better-whitespace'
+
+"" clojure
 Plug 'tpope/vim-fireplace'
 Plug 'venantius/vim-cljfmt'
 
-"" following are required for vim-iced
-Plug 'junegunn/fzf'
+"" vim-iced stuff (clojure)
 Plug 'guns/vim-sexp',    {'for': 'clojure'}
 Plug 'liquidz/vim-iced', {'for': 'clojure'}
+Plug 'junegunn/fzf' " required for vim iced and useful for other stuff as well
 
 " window manager for vim
 Plug 'paroxayte/vwm.vim'
@@ -32,6 +36,9 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 
 "" nerdcommenter recommendation
 filetype plugin on
+
+"" better whitespace
+nnoremap <leader>s :StripWhitespace<CR>
 
 "" NVIM Window Manager
 let g:vwm#layouts = [
