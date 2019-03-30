@@ -53,6 +53,8 @@ let g:iced_enable_default_key_mappings = v:true
 "" NERDTREE
 ""map <C-n> :NERDTreeToggle<CR>
 nnoremap <C-b> :NERDTreeToggle<CR>
+nnoremap <leader>tp :T python3<CR> :startinsert<CR>
+nnoremap <leader>tf :T fish<CR> :startinsert<CR>
 
 "" terminal - leave terminal insert mode
 tnoremap <esc> <C-\><C-n><esc><cr>
