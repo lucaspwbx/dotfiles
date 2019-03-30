@@ -53,11 +53,12 @@ let g:iced_enable_default_key_mappings = v:true
 "" NERDTREE
 ""map <C-n> :NERDTreeToggle<CR>
 nnoremap <C-b> :NERDTreeToggle<CR>
-nnoremap <leader>tp :T python3<CR> :startinsert<CR>
-nnoremap <leader>tf :T fish<CR> :startinsert<CR>
 
 "" terminal - leave terminal insert mode
 tnoremap <esc> <C-\><C-n><esc><cr>
+nnoremap <leader>tp :T python3<CR> :startinsert<CR>
+nnoremap <leader>tf :T fish<CR> :startinsert<CR>
+nnoremap <leader>tl :<c-u>exec v:count.'Tclear'<cr><Paste>
 
 "" nerdcommenter recommendation
 filetype plugin on
@@ -101,7 +102,10 @@ set hidden
 
 let g:LanguageClient_serverCommands = {
     \ 'clojure': ['/home/lucas/apps/clojure-lsp'],
-    \ 'go': ['/home/lucas/go/bin/go-langserver']
+    \ 'go': ['/home/lucas/go/bin/go-langserver'],
+    \ 'rust': ['rls'],
+    \ 'haskell': ['hie'],
+    \ 'python': ['pyls']
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
