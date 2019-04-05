@@ -33,6 +33,9 @@ font pango:mono 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+#bindsym $mod+y fullscreen disable, floating enable, resize set 251 170, sticky enable, move window to position 1515 20
+for_window [class="mpv"] fullscreen disable, floating enable, resize set 640 480, move position 10 10
+
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec termite
