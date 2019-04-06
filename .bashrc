@@ -28,6 +28,7 @@ export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/neovim/bin:$PATH"
 
 source ~/.nvm/nvm.sh
+source <(kitty + complete setup bash)
 
 #. $HOME/.asdf/asdf.sh
 #

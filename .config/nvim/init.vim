@@ -11,10 +11,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'kassio/neoterm'
-""Plug 'autozimu/LanguageClient-neovim', {
-""    \ 'branch': 'next',
-""    \ 'do': 'bash install.sh',
-""    \ }
 Plug 'janko-m/vim-test'
 
 "" clojure
@@ -32,9 +28,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'guns/vim-sexp',    {'for': 'clojure'}
 Plug 'liquidz/vim-iced', {'for': 'clojure'}
 Plug 'junegunn/fzf' " required for vim iced and useful for other stuff as well
-
-"" deoplete
-""Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "" elixir
 Plug 'elixir-editors/vim-elixir'
@@ -68,7 +61,8 @@ nnoremap <leader>tf :split term://fish<CR> :startinsert<CR>
 ""nnoremap <leader>tl :<c-u>exec v:count.'Tclear'<cr><Paste>
 
 nnoremap <leader>n :split /home/lucas/toy-projects/notes/notes.md<CR>
-nnoremap <leader>v :split $MYVIMRC<CR>
+nnoremap <leader>ev :split $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 "" vimtest
 nmap <silent> t<C-n> :TestNearest<CR>
@@ -111,27 +105,6 @@ let g:vwm#layouts = [
       \  }
       \]
 
-
-"" LANGUAGE SERVER STUFF
-""
-"" Required for operations modifying multiple buffers like rename.
-"set hidden
-"
-"let g:LanguageClient_serverCommands = {
-"    \ 'clojure': ['/home/lucas/apps/clojure-lsp'],
-"    \ 'go': ['/home/lucas/go/bin/go-langserver'],
-"    \ 'rust': ['rls'],
-"    \ 'haskell': ['hie'],
-"    \ 'python': ['pyls'],
-"    \ 'elixir': ['/home/lucas/apps/elixir-ls/rel/language_server.sh'],
-"    \ 'tex': ['java','-jar', '/home/lucas/apps/texlab.jar']
-"    \ }
-
-"nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-"" Or map each action separately
-"nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-"nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " vim elixir
 let g:mix_format_on_save = 1
