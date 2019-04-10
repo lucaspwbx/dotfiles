@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /home/lucas/toy-projects/daily-coding-problems
+exec nvim -c ':NERDTree'
