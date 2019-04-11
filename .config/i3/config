@@ -46,6 +46,9 @@ bindsym $mod+Return exec kitty
 # open daily coding problems folder
 bindsym $mod+Shift+d exec "kitty -e '/home/lucas/.config/i3/edit_daily'"
 
+# open github explorer folder
+bindsym $mod+Shift+g exec "kitty -e '/home/lucas/.config/i3/edit_github'"
+
 # kill focused window
 bindsym $mod+q kill
 

@@ -21,6 +21,9 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'clojure-vim/acid.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Olical/conjure', { 'tag': 'v0.6.1', 'do': 'make compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
 
+""python
+Plug 'tell-k/vim-autopep8'
+
 "" go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 

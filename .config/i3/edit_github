@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /home/lucas/go/src/github.com/lucasweiblen/github-explorer
+exec nvim -c ':NERDTree'
