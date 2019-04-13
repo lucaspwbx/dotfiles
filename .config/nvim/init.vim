@@ -1,25 +1,36 @@
-" set runtimepath^=~/.vim runtimepath+=~/.vim/after
-" let &packpath = &runtimepath
-" source ~/.vimrc
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+" Track the engine.
+Plug 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
+"" javascript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 "" general tools
 Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'kassio/neoterm'
+"Plug 'kassio/neoterm'
 Plug 'janko-m/vim-test'
 
 "" clojure
-Plug 'tpope/vim-fireplace'
-Plug 'venantius/vim-cljfmt'
-Plug 'vim-scripts/paredit.vim'
-Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'clojure-vim/acid.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Olical/conjure', { 'tag': 'v0.6.1', 'do': 'make compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
+"Plug 'tpope/vim-fireplace'
+"Plug 'venantius/vim-cljfmt'
+"Plug 'vim-scripts/paredit.vim'
+"Plug 'junegunn/rainbow_parentheses.vim'
+"Plug 'clojure-vim/acid.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Olical/conjure', { 'tag': 'v0.6.1', 'do': 'make compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
 
 ""python
 Plug 'tell-k/vim-autopep8'
@@ -28,8 +39,8 @@ Plug 'tell-k/vim-autopep8'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 "" vim-iced stuff (clojure)
-Plug 'guns/vim-sexp',    {'for': 'clojure'}
-Plug 'liquidz/vim-iced', {'for': 'clojure'}
+"Plug 'guns/vim-sexp',    {'for': 'clojure'}
+"Plug 'liquidz/vim-iced', {'for': 'clojure'}
 Plug 'junegunn/fzf' " required for vim iced and useful for other stuff as well
 
 "" elixir
@@ -37,7 +48,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 
 " window manager for vim
-Plug 'paroxayte/vwm.vim'
+" Plug 'paroxayte/vwm.vim'
 
 " seamless navigation between nvim and tmux
 "Plug 'christoomey/vim-tmux-navigator'
@@ -48,9 +59,10 @@ let mapleader = ","
 filetype plugin indent on
 syntax enable
 set number
+
 "" vim iced
-set hidden
-let g:iced_enable_default_key_mappings = v:true
+"set hidden
+"let g:iced_enable_default_key_mappings = v:true
 
 "" NERDTREE
 ""map <C-n> :NERDTreeToggle<CR>
@@ -61,7 +73,6 @@ tnoremap <esc> <C-\><C-n><esc><cr>
 
 nnoremap <leader>tp :split term://python3<CR> :startinsert<CR>
 nnoremap <leader>tf :split term://fish<CR> :startinsert<CR>
-""nnoremap <leader>tl :<c-u>exec v:count.'Tclear'<cr><Paste>
 
 nnoremap <leader>n :split /home/lucas/toy-projects/notes/notes.md<CR>
 nnoremap <leader>ev :split $MYVIMRC<CR>
@@ -88,27 +99,6 @@ nnoremap <leader>s :w<CR>
 set autoindent
 set mouse=a
 
-"" NVIM Window Manager
-let g:vwm#layouts = [
-      \  {
-      \    'name': 'test',
-      \    'bot':
-      \    {
-      \      'init': ['call termopen("fish", {"detach": 0})'],
-      \      'sz': 12,
-      \      'left':
-      \      {
-      \        'init': ['call termopen("fish", {"detach": 0})'],
-      \      },
-      \      'right':
-      \      {
-      \        'init': ['call termopen("fish", {"detach": 0})'],
-      \      }
-      \    }
-      \  }
-      \]
-
-
 " vim elixir
 let g:mix_format_on_save = 1
 
@@ -124,18 +114,18 @@ nnoremap <C-p> :<C-u>FZF<CR>
 
 autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
 
-"" RAINBOW PARENTHESES
+""" RAINBOW PARENTHESES
+"
+"augroup rainbow_lisp
+"	autocmd!
+"	autocmd FileType lisp,clojure,scheme RainbowParentheses
+"augroup END
+"
+"let g:rainbow#max_level = 16
+"let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 
-augroup rainbow_lisp
-	autocmd!
-	autocmd FileType lisp,clojure,scheme RainbowParentheses
-augroup END
 
-let g:rainbow#max_level = 16
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-
-
-let g:coc_global_extensions = ['coc-conjure']
+"let g:coc_global_extensions = ['coc-conjure']
 
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -258,3 +248,8 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" yaml
+"
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
