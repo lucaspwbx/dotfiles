@@ -1,0 +1,29 @@
+{
+  "languageserver": {
+    "elixirLS": {
+      "command": "/home/lucas/apps/elixir-ls/rel/language_server.sh",
+      "filetypes": ["elixir", "eelixir"]
+    },
+    "golang": {
+      "command": "go-langserver",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "gocodeCompletionEnabled": true,
+        "diagnosticsEnabled": true,
+        "lintTool": "golint"
+      }
+    },
+    "python": {
+      "command": "pyls",
+      "filetypes": ["py"]
+    }
+  },
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.infoSign": " ",
+  "diagnostic.hintSign": "",
+  "suggest.timeout": 5000,
+  "python.jediEnabled": false,
+  "python.autoComplete.addBrackets": true,
+  "python.linting.enabled": true
+}
