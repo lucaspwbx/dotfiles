@@ -21,16 +21,16 @@ Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
-"Plug 'kassio/neoterm'
+Plug 'kassio/neoterm'
 Plug 'janko-m/vim-test'
 
 "" clojure
-"Plug 'tpope/vim-fireplace'
-"Plug 'venantius/vim-cljfmt'
-"Plug 'vim-scripts/paredit.vim'
-"Plug 'junegunn/rainbow_parentheses.vim'
-"Plug 'clojure-vim/acid.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'Olical/conjure', { 'tag': 'v0.6.1', 'do': 'make compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
+Plug 'tpope/vim-fireplace'
+Plug 'venantius/vim-cljfmt'
+Plug 'vim-scripts/paredit.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'clojure-vim/acid.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Olical/conjure', { 'tag': 'v0.6.1', 'do': 'make compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
 
 ""python
 Plug 'tell-k/vim-autopep8'
@@ -39,16 +39,13 @@ Plug 'tell-k/vim-autopep8'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 "" vim-iced stuff (clojure)
-"Plug 'guns/vim-sexp',    {'for': 'clojure'}
-"Plug 'liquidz/vim-iced', {'for': 'clojure'}
+Plug 'guns/vim-sexp',    {'for': 'clojure'}
+Plug 'liquidz/vim-iced', {'for': 'clojure'}
 Plug 'junegunn/fzf' " required for vim iced and useful for other stuff as well
 
 "" elixir
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
-
-" window manager for vim
-" Plug 'paroxayte/vwm.vim'
 
 " seamless navigation between nvim and tmux
 "Plug 'christoomey/vim-tmux-navigator'
@@ -61,12 +58,21 @@ syntax enable
 set number
 
 "" vim iced
-"set hidden
-"let g:iced_enable_default_key_mappings = v:true
+set hidden
+let g:iced_enable_default_key_mappings = v:true
 
 "" NERDTREE
 ""map <C-n> :NERDTreeToggle<CR>
 nnoremap <C-b> :NERDTreeToggle<CR>
+
+"" neoterm
+"let g:neoterm_autoscroll = '1'
+"let g:neoterm_size = 16
+"command! -nargs=+ TT Topen | T
+"vnoremap <Leader>2 :TREPLSendSelection<CR>
+"nnoremap <Leader>2 :TREPLSendLine<CR>
+"nnoremap <Leader>0 :Ttoggle<CR>
+"nnoremap <Leader>1 :Tclose<CR>
 
 "" terminal - leave terminal insert mode
 tnoremap <esc> <C-\><C-n><esc><cr>
@@ -102,11 +108,6 @@ set mouse=a
 " vim elixir
 let g:mix_format_on_save = 1
 
-""" deoplete
-"let g:deoplete#enable_at_startup = 1
-"let g:deoplete#keyword_patterns = {}
-"let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
-
 " mapping for fzf
 nnoremap <C-p> :<C-u>FZF<CR>
 
@@ -114,18 +115,17 @@ nnoremap <C-p> :<C-u>FZF<CR>
 
 autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
 
-""" RAINBOW PARENTHESES
-"
-"augroup rainbow_lisp
-"	autocmd!
-"	autocmd FileType lisp,clojure,scheme RainbowParentheses
-"augroup END
-"
-"let g:rainbow#max_level = 16
-"let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+"" RAINBOW PARENTHESES
 
+augroup rainbow_lisp
+	autocmd!
+	autocmd FileType lisp,clojure,scheme RainbowParentheses
+augroup END
 
-"let g:coc_global_extensions = ['coc-conjure']
+let g:rainbow#max_level = 16
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+
+let g:coc_global_extensions = ['coc-conjure']
 
 " if hidden is not set, TextEdit might fail.
 set hidden
