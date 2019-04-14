@@ -2,6 +2,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
+" vimtex
+Plug 'lervag/vimtex'
+
 " Track the engine.
 Plug 'SirVer/ultisnips'
 
@@ -29,8 +32,8 @@ Plug 'tpope/vim-fireplace'
 Plug 'venantius/vim-cljfmt'
 Plug 'vim-scripts/paredit.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'clojure-vim/acid.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Olical/conjure', { 'tag': 'v0.6.1', 'do': 'make compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
+"Plug 'clojure-vim/acid.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Olical/conjure', { 'tag': 'v0.6.1', 'do': 'make compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
 
 ""python
 Plug 'tell-k/vim-autopep8'
@@ -125,7 +128,7 @@ augroup END
 let g:rainbow#max_level = 16
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 
-let g:coc_global_extensions = ['coc-conjure']
+"let g:coc_global_extensions = ['coc-conjure']
 
 " if hidden is not set, TextEdit might fail.
 set hidden
