@@ -2,14 +2,16 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
+Plug 'mhartington/oceanic-next'
+
 " vimtex
-Plug 'lervag/vimtex'
+"Plug 'lervag/vimtex'
 
 " Track the engine.
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
+"Plug 'honza/vim-snippets'
 
 "" javascript
 Plug 'pangloss/vim-javascript'
@@ -39,7 +41,8 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tell-k/vim-autopep8'
 
 "" go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go'
 
 "" vim-iced stuff (clojure)
 Plug 'guns/vim-sexp',    {'for': 'clojure'}
@@ -67,15 +70,6 @@ let g:iced_enable_default_key_mappings = v:true
 "" NERDTREE
 ""map <C-n> :NERDTreeToggle<CR>
 nnoremap <C-b> :NERDTreeToggle<CR>
-
-"" neoterm
-"let g:neoterm_autoscroll = '1'
-"let g:neoterm_size = 16
-"command! -nargs=+ TT Topen | T
-"vnoremap <Leader>2 :TREPLSendSelection<CR>
-"nnoremap <Leader>2 :TREPLSendLine<CR>
-"nnoremap <Leader>0 :Ttoggle<CR>
-"nnoremap <Leader>1 :Tclose<CR>
 
 "" terminal - leave terminal insert mode
 tnoremap <esc> <C-\><C-n><esc><cr>
@@ -256,3 +250,16 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 "
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" OCEANIC
+" For Neovim 0.1.3 and 0.1.4
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" Or if you have Neovim >= 0.1.5
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+" Theme
+syntax enable
+colorscheme OceanicNext
