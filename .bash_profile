@@ -6,9 +6,9 @@
 export EDITOR=nvim
 export BROWSER=firefox
 export TERMINAL=kitty
-export NVIMCONFIG=$HOME/.config/nvim
-export NVIMRC=$HOME/.config/nvim/init.vim
-export NVIMDATA=$HOME/.local/share/nvim
+#export NVIMCONFIG=$HOME/.config/nvim
+#export NVIMRC=$HOME/.config/nvim/init.vim
+#export NVIMDATA=$HOME/.local/share/nvim
 export VISUAL=nvim
 export GOPATH=$HOME/go
 export APPSPATH=$HOME/apps

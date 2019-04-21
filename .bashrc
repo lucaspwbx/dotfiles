@@ -5,8 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Activate vi mode with <Escape>
 alias vim=nvim
+alias spacemacs='HOME=~/spacemacs emacs'
 alias ls='ls --color=auto'
 alias rss='newsboat'
 alias gc='git commit -m'
@@ -26,6 +26,7 @@ export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 export PATH="$HOME/apps:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/neovim/bin:$PATH"
+export PATH="$HOME/.emacs.d/bin:$PATH"
 
 source ~/.nvm/nvm.sh
 source <(kitty + complete setup bash)
@@ -33,3 +34,5 @@ source <(kitty + complete setup bash)
 #. $HOME/.asdf/asdf.sh
 #
 #. $HOME/.asdf/completions/asdf.bash
+source /home/lucas/.local/bin/activate.sh
+#eval "$(pipenv --completion)"
