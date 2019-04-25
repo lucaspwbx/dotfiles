@@ -2,20 +2,25 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
+"" NEW PLUGINS
+" auto-close plugin
+"Plug 'rstacruz/vim-closer'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'othree/yajs.vim'
+
+" Snippet support
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+
+" Print function signatures in echo area
+Plug 'Shougo/echodoc.vim'
+
 " Fuzzy finding and managing open files
 Plug 'Shougo/denite.nvim'
 
 " Theme
 Plug 'mhartington/oceanic-next'
-
-" vimtex
-"Plug 'lervag/vimtex'
-
-" Track the engine.
-"Plug 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-"Plug 'honza/vim-snippets'
 
 "" javascript
 Plug 'pangloss/vim-javascript'
@@ -38,8 +43,6 @@ Plug 'tpope/vim-fireplace'
 Plug 'venantius/vim-cljfmt'
 Plug 'vim-scripts/paredit.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
-"Plug 'clojure-vim/acid.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'Olical/conjure', { 'tag': 'v0.6.1', 'do': 'make compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
 
 ""python
 Plug 'tell-k/vim-autopep8'
@@ -57,8 +60,6 @@ Plug 'junegunn/fzf' " required for vim iced and useful for other stuff as well
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 
-" seamless navigation between nvim and tmux
-"Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 let mapleader = ","
@@ -67,9 +68,6 @@ filetype plugin indent on
 syntax enable
 set number
 
-"" vim iced
-set hidden
-let g:iced_enable_default_key_mappings = v:true
 
 "" NERDTREE
 ""map <C-n> :NERDTreeToggle<CR>
@@ -106,27 +104,9 @@ nnoremap <leader>s :w<CR>
 set autoindent
 set mouse=a
 
-" vim elixir
-let g:mix_format_on_save = 1
-
-" mapping for fzf
-nnoremap <C-p> :<C-u>FZF<CR>
-
 " MARKDOWN
 
 autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
-
-"" RAINBOW PARENTHESES
-
-augroup rainbow_lisp
-	autocmd!
-	autocmd FileType lisp,clojure,scheme RainbowParentheses
-augroup END
-
-let g:rainbow#max_level = 16
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-
-"let g:coc_global_extensions = ['coc-conjure']
 
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -217,7 +197,6 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-
 " Add diagnostic info for https://github.com/itchyny/lightline.vim
 let g:lightline = {
       \ 'colorscheme': 'wombat',
@@ -229,8 +208,6 @@ let g:lightline = {
       \   'cocstatus': 'coc#status'
       \ },
       \ }
-
-
 
 " Using CocList
 " Show all diagnostics
@@ -255,18 +232,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-" OCEANIC
-" For Neovim 0.1.3 and 0.1.4
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-" Or if you have Neovim >= 0.1.5
-if (has("termguicolors"))
- set termguicolors
-endif
-
-" Theme
-syntax enable
-colorscheme OceanicNext
 
 " ============================================================================ "
 " ===                             KEY MAPPINGS                             === "
@@ -351,3 +316,68 @@ call s:profile(s:denite_options)
 catch
   echo 'Denite not installed. It should work after running :PlugInstall'
 endtry
+
+
+"" PRETTIER
+"" when running at every change you may want to disable quickfix
+let g:prettier#quickfix_enabled = 0
+
+let g:prettier#autoformat = 0
+autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+source ~/.config/nvim/04.clojure.vim
+source ~/.config/nvim/05.colorscheme.vim
+source ~/.config/nvim/06.plugins.vim
+
+"" OLD CLOJURE STUFF
+""" RAINBOW PARENTHESES
+"
+"augroup rainbow_lisp
+"	autocmd!
+"	autocmd FileType lisp,clojure,scheme RainbowParentheses
+"augroup END
+"
+"let g:rainbow#max_level = 16
+"let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+
+"let g:coc_global_extensions = ['coc-conjure']
+"
+"" vim iced
+"set hidden
+"let g:iced_enable_default_key_mappings = v:true
+
+"" OLD THEME STUFF
+"" OCEANIC
+"" For Neovim 0.1.3 and 0.1.4
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"
+"" Or if you have Neovim >= 0.1.5
+"if (has("termguicolors"))
+" set termguicolors
+"endif
+"
+"" Theme
+"syntax enable
+"colorscheme OceanicNext
+"
+
+"" vim elixir
+"let g:mix_format_on_save = 1
+
+" mapping for fzf
+"nnoremap <C-p> :<C-u>FZF<CR>
+"
+" vimtex
+"Plug 'lervag/vimtex'
+
+" Track the engine.
+"Plug 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+"Plug 'honza/vim-snippets'
+"
+"Plug 'clojure-vim/acid.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Olical/conjure', { 'tag': 'v0.6.1', 'do': 'make compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType html       setlocal shiftwidth=2 tabstop=2
+autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 expandtab
