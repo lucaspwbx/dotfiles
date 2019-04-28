@@ -8,6 +8,7 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'othree/yajs.vim'
+Plug 'jceb/vim-orgmode'
 
 " Snippet support
 Plug 'Shougo/neosnippet'
@@ -79,9 +80,11 @@ tnoremap <esc> <C-\><C-n><esc><cr>
 nnoremap <leader>tp :split term://python3<CR> :startinsert<CR>
 nnoremap <leader>tf :split term://fish<CR> :startinsert<CR>
 
-nnoremap <leader>n :split /home/lucas/toy-projects/notes/notes.md<CR>
+""nnoremap <leader>n :split /home/lucas/toy-projects/notes/notes.md<CR>
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>n :bn<CR>
+nnoremap <leader>p :bp<CR>
 
 "" vimtest
 nmap <silent> t<C-n> :TestNearest<CR>
@@ -229,8 +232,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " yaml
 "
-au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+"au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 
 
 " ============================================================================ "
@@ -318,12 +320,13 @@ catch
 endtry
 
 
-"" PRETTIER
-"" when running at every change you may want to disable quickfix
+" PRETTIER
+" when running at every change you may want to disable quickfix
 let g:prettier#quickfix_enabled = 0
 
 let g:prettier#autoformat = 0
-autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+"autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 source ~/.config/nvim/04.clojure.vim
 source ~/.config/nvim/05.colorscheme.vim
@@ -381,3 +384,7 @@ source ~/.config/nvim/06.plugins.vim
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType html       setlocal shiftwidth=2 tabstop=2
 autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Live substitution
+:set inccommand=nosplit

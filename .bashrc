@@ -16,6 +16,7 @@ alias tst='npm test'
 alias hst='sudo vim /etc/hosts'
 alias gl='git log --graph --oneline --all'
 alias monta='sudo mount -o rw,users,umask=000 /dev/sdb1 /mnt/kindle'
+alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
 PS1='[\u@\h \W]\$ '
 
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
