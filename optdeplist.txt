@@ -1,0 +1,11 @@
+bzr
+geoclue
+hunspell-en_US
+libldac
+libtiger
+llvm
+npm
+protobuf
+python-beautifulsoup4
+qt5-websockets
+qt5-xmlpatterns
