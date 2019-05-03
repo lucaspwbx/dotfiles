@@ -9,6 +9,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'othree/yajs.vim'
 Plug 'jceb/vim-orgmode'
+Plug 'mattn/emmet-vim'
+Plug 'Yggdroot/indentLine'
+Plug 'leafgarland/typescript-vim'
 
 " Snippet support
 Plug 'Shougo/neosnippet'
